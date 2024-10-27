@@ -1,0 +1,84 @@
+/*
+ Clase main
+ */
+
+package com.mycompany.clase5e1;
+
+import java.util.Scanner;
+
+public class Clase5E1 {
+    public static int menu(){
+        Scanner leer1 = new Scanner(System.in);
+        int opcion;
+        System.out.println("[1] opcion 1");
+        System.out.println("[2] opcion 2");
+        System.out.println("[3] opcion 3");
+        System.out.print("Digite opcion: ");
+        opcion = leer1.nextInt();
+        
+        return (opcion);
+ }
+    public static void imprimir_perros(Perros canino){
+        System.out.println("-------------------");
+        System.out.println("Color : "+canino.color);
+        System.out.println("Edad : "+canino.edad);
+        System.out.println("Raza : "+canino.raza);
+        System.out.println("Tamaño: "+canino.tamano);
+        System.out.println("-------------------");
+ }
+    public static Perros leerDatos(){
+        Scanner leer1 = new Scanner(System.in);
+        Scanner leer2 = new Scanner(System.in);
+        Perros tempo = new Perros();
+        
+        System.out.print("Ingrese raza : ");
+        tempo.raza = leer1.nextLine();
+        System.out.print("Ingrese tamaño: ");
+        tempo.tamano = leer1.nextLine();
+        System.out.print("Ingrese edad : ");
+        tempo.edad = leer2.nextInt();
+        System.out.print("Ingrese color : ");
+        tempo.color = leer1.nextLine();
+        
+        return (tempo);
+ }
+    public static void main(String[] args) {
+        Perros mi_perro = new Perros();
+        String linea;
+
+        System.out.println("*" + menu()+"*");
+        mi_perro = leerDatos();
+        imprimir_perros(mi_perro);
+        System.out.println(mi_perro.getInfo());
+
+        mi_perro.setInfo("mastin", "muy grande", 5, "negro");
+        linea = mi_perro.getInfo();
+        System.out.println(linea);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------
+
+/*
+ lase perro
+ */
+package com.mycompany.clase5e1;
+
+public class Perros {
+    String raza;
+    String tamano;
+    int edad;
+    String color;
+    public String getInfo() {
+        return ("\nRaza : "+raza+
+                "\nTamano: "+tamano+
+                "\nEdad : "+edad+
+                "\nColor : "+color);
+ }
+    public void setInfo(String raza, String tamanio, int edad, String color){
+        this.raza = raza;
+        tamano = tamanio;
+        this.edad = edad;
+        this.color= color;
+ }
+    
+}
